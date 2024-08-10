@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
-import { Todo, TodoService } from '../to-do.service';
 import { TodoItemComponent } from "../todo-item/todo-item.component";
+import { Todo, TodoService } from '../to-do.service';
 
 @Component({
   selector: 'app-todo-list',
