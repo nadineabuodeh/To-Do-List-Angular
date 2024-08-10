@@ -1,0 +1,34 @@
+<div>
+  <form [formGroup]="todoForm" (ngSubmit)="addTask()" class="task-form">
+    <input formControlName="title" placeholder="Add your task here .." class="task-input">
+    <button type="submit" id="submit-btn">Add</button>
+  </form>
+
+  <input type="text" placeholder="Search tasks..." (input)="searchTasks($event)" class="task-input search-input">
+
+  @if (todos.length > 0) {
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Completed</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <app-todo-item *ngFor="let todo of filteredTodos; let i = index"
+                       [todo]="todo"
+                       [index]="i"
+                       (completeTask)="isComplete($event)"
+                       (editTask)="editTask($event)"
+                       (saveTask)="saveTask($event)"
+                       (cancelEdit)="cancelEdit($event)"
+                       (deleteTask)="deleteTask($event)">
+        </app-todo-item>
+      </tbody>
+    </table>
+  } @else {
+    <p id="no-task">No tasks available</p>
+  }
+</div>
